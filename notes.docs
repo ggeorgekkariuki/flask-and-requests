@@ -1,0 +1,34 @@
+In this tutorial, we'll go through how to process incoming data for the most common use cases.
+The forms of incoming data we'll cover are: 
+ - query strings, 
+ - form data, and 
+ - JSON objects. 
+ 
+To demonstrate these cases, we'll build a simple example app with three routes that accept either query string data, form data, or JSON data.
+
+To process incoming data in Flask, we have to use the Request Object
+
+QUERY STRINGS
+
+example.com?arg1=value1&arg2=value2
+
+This is a simple query which starts at the end of '?'
+It has key-value pairs;
+    key- arg1 value- value1
+    key- arg2 value- value2
+
+If we wanted our app to run the following query
+    http://127.0.0.1:5000/query-example?language=Python
+
+nothing would happen because the app doesn't know how to handle such queries.
+
+Enter REQUESTS
+By calling 
+    request.args.get('language'),
+our application will continue to run if the language key doesn't exist in the URL. In that case, the result of the method displayed on screen will be 'None'. 
+
+If we use 
+    request.args['language'], 
+the app will return a 400 error if language key doesn't exist in the URL. 
+
+For query strings, use request.args.get() because of how easy it is for the user to modify the URL. If they remove one of the keys, request.args.get() will prevent the app from failing.
