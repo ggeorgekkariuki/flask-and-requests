@@ -35,3 +35,5 @@ For query strings, use request.args.get() because of how easy it is for the user
 
 FORM DATA
 Form data comes from a form that has been sent as a POST request to a route.
+
+Similarly use request.form.get() or request.form[]
