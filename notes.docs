@@ -32,3 +32,6 @@ If we use
 the app will return a 400 error if language key doesn't exist in the URL. 
 
 For query strings, use request.args.get() because of how easy it is for the user to modify the URL. If they remove one of the keys, request.args.get() will prevent the app from failing.
+
+FORM DATA
+Form data comes from a form that has been sent as a POST request to a route.
