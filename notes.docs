@@ -1,3 +1,5 @@
+https://scotch.io/bar-talk/processing-incoming-request-data-in-flask
+
 In this tutorial, we'll go through how to process incoming data for the most common use cases.
 The forms of incoming data we'll cover are: 
  - query strings, 
@@ -37,3 +39,18 @@ FORM DATA
 Form data comes from a form that has been sent as a POST request to a route.
 
 Similarly use request.form.get() or request.form[]
+
+JSON DATA
+First, to send a JSON object, we'll need a program capable of sending custom requests to URLs.
+For this, we can use an app called Postman.
+
+All JSON objects will be converted into a Python dictionary, with key - values, by Flask.
+A JSON array will be converted into a Python List
+Then the values inside of quotes in the JSON object become strings in Python;
+true and false become True and False in Python.
+Numbers without quotes around them become numbers in Python.
+
+Steps:
+    1. Assign everything from the JSON object into a variable
+            req_data = request.get_json()
+        converts the JSON object into Python data
